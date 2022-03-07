@@ -1,0 +1,14 @@
+
+
+<ul>
+<% @letters.each do |letter| %>
+<li> <%=letter%> </li>
+<% end %>
+</ul>
+
+<form action="/score" method="post">
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="text" name="suggestion">
+  <input type="submit" value="Play">
+  <%= hidden_field_tag :authenticity_letter, @letters %>
+</form>
